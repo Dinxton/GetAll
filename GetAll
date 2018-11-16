@@ -19,6 +19,15 @@ function fGithub(link)
   shell.run("github", "clone", link, "/")
 end
 
+--Implement ability to leave nl blank using what you used for newLine()
+function selectionList(listItem, nl)
+  term.write("*")
+  dc.moveCursor(2, 0)
+  term.write(listItem)
+  if type(nl) ~= "number" or nl < 1 then 
+    dc.newLine()
+  end
+end
 
 function downloadNotify (selection)
   term.write("Downloading selection "..selection)
@@ -27,23 +36,24 @@ function downloadNotify (selection)
     fGithub(DC)
   elseif selection == "GA" then
     fGithub(GA)
+  elseif selection == "QU" then
+    quit = true
   else
     print("Invalid selection, please try again.") 
   end
 end
 
 function commandsInput()
+  if quit == true then
+    dc.cExit()
+  end
   if counter == 0 then
     term.write("Please enter the number of the program you wish to download.")
   else
     term.write("Do you want to download another program?")
   end
-  dc.newLine()
-  dc.newLine()
-  term.write("*")
-  dc.moveCursor(2, 0)
-  term.write("DC - DCore - dc.lua")
-  dc.newLine()
+  dc.newLine(2)
+  selectionList("DC - DCore - dc.lua")
   term.write("*")
   dc.moveCursor(2, 0)
   term.write("GA - GetAll - GetAll.lua")
@@ -56,5 +66,6 @@ end
 dc.clearScrn()
 --Program selection
 
-
-commandsInput()
+while true do
+  commandsInput()
+end
