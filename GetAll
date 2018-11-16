@@ -52,7 +52,7 @@ function commandsInput()
     term.write("Do you want to download another program?")
   end
   dc.newLine(2)
-  selectionList("DC - DCore - dc.lua")
+  selectionList("DC - DCore - dc.lua", true)
   term.write("*")
   dc.moveCursor(2, 0)
   term.write("GA - GetAll - GetAll.lua")
