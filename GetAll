@@ -13,7 +13,7 @@ print(DC)
 print(GA)
 --Initialising variables
 counter = 0
-
+quit = false
 --Functions
 function fGithub(link)
   shell.run("github", "clone", link, "/")
@@ -23,9 +23,9 @@ function selectionList(listItem, nl)
   term.write("*")
   dc.moveCursor(2, 0)
   term.write(listItem)
-  if nl == true then
-    dc.newLine()
-  end
+  --if nl == true then
+    --dc.newLine()
+  --end
 end
 
 function downloadNotify (selection)
