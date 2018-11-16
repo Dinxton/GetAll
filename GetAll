@@ -23,9 +23,9 @@ function selectionList(listItem, nl)
   term.write("*")
   dc.moveCursor(2, 0)
   term.write(listItem)
-  --if nl == true then
-    --dc.newLine()
-  --end
+  if nl == true then
+    dc.newLine()
+  end
 end
 
 function downloadNotify (selection)
@@ -54,7 +54,7 @@ function commandsInput()
   dc.newLine(2)
   selectionList("DC - DCore - dc.lua", true)
   term.write("*")
-  dc.moveCursor(2, 0)
+  dc.moveCursorRelative(2, 0)
   term.write("GA - GetAll - GetAll.lua")
   dc.newLine()
   local input = read()
