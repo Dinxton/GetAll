@@ -1,5 +1,6 @@
 --GetAll - A bespoke frontend for eric-wieser's computercraft-github cloner.
---Depends on: DCore (dc/lua) version 0.0.1; Latest computercraft-github
+--Depends on: DCore (dc/lua) version 1.0.1; Latest computercraft-github
+--Version 0.1.0 PR
 
 --Imports
 os.loadAPI("dc")
@@ -8,8 +9,11 @@ os.loadAPI("dc")
 DC = "dinxton/dcore"
 GA = "dinxton/GetAll"
 
+print(DC)
+print(GA)
 --Initialising variables
 counter = 0
+
 --Functions
 function fGithub(link)
   shell.run("github", "clone", link, "/")
@@ -19,23 +23,34 @@ end
 function downloadNotify (selection)
   term.write("Downloading selection "..selection)
   dc.newLine()
-  fGithub(selection)
+  if selection == "DC" then
+    fGithub(DC)
+  elseif selection == "GA" then
+    fGithub(GA)
+  else
+    print("Invalid selection, please try again.") 
+  end
 end
 
-function commandsInput
-  if counter = 0 then
+function commandsInput()
+  if counter == 0 then
     term.write("Please enter the number of the program you wish to download.")
   else
     term.write("Do you want to download another program?")
   end
   dc.newLine()
+  dc.newLine()
+  term.write("*")
+  dc.moveCursor(2, 0)
   term.write("DC - DCore - dc.lua")
   dc.newLine()
+  term.write("*")
+  dc.moveCursor(2, 0)
   term.write("GA - GetAll - GetAll.lua")
   dc.newLine()
   local input = read()
   downloadNotify(input)
-  counter+=1
+  counter = counter+1
 end
 --Clearing screen
 dc.clearScrn()
