@@ -19,7 +19,6 @@ function fGithub(link)
   shell.run("github", "clone", link, "/")
 end
 
---Implement ability to leave nl blank using what you used for newLine()
 function selectionList(listItem, nl)
   term.write("*")
   dc.moveCursor(2, 0)
