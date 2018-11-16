@@ -21,7 +21,7 @@ end
 
 function selectionList(listItem, nl)
   term.write("*")
-  dc.moveCursor(2, 0)
+  dc.moveCursorRelative(2, 0)
   term.write(listItem)
   if nl == true then
     dc.newLine()
