@@ -1,6 +1,6 @@
 --GetAll - A bespoke frontend for eric-wieser's computercraft-github cloner.
 --Depends on: DCore (dc/lua) version 1.0.1; Latest computercraft-github
---Version 0.1.0 PR
+--Version 0.1.1 PR
 
 --Imports
 os.loadAPI("dc")
@@ -23,7 +23,7 @@ function selectionList(listItem, nl)
   term.write("*")
   dc.moveCursor(2, 0)
   term.write(listItem)
-  if type(nl) ~= "number" or nl < 1 then 
+  if nl == true then
     dc.newLine()
   end
 end
